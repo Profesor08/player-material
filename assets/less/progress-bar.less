@@ -1,0 +1,107 @@
+/**
+ * Created by Profesor08 on 27.05.2017.
+ */
+
+.progress-bar-wrapper {
+
+  @range-height: 30px;
+  @range-width: 100%;
+  @range-overflow-total: 12px;
+  @range-overflow: 6px;
+  @range-vertical-center: -50%;
+
+  @thumb-width: 10px;
+  @thumb-height: 10px;
+  @thumb-background: #FFFFFF;
+  @thumb-border: 6px;
+  @thumb-border-color: rgba(211, 20, 39, 0.4);
+  @thumb-border-radius: 50%;
+
+  @progress-bar-height: 2px;
+
+  height: 0;
+  width: 100%;
+  position: relative;
+  z-index: 3;
+  transition: ease-in-out transform 300ms;
+
+  .thumb {
+    display: none;
+  }
+
+  .progress-bar {
+    height: @progress-bar-height;
+    width: 100%;
+    background: #000000;
+    position: absolute;
+
+    .background-bar {
+      width: 0;
+      height: inherit;
+      background: #F3162B;
+    }
+  }
+
+  .bar-thumb()
+  {
+    width: @thumb-width;
+    height: @thumb-height;
+    background: @thumb-background;
+    background-clip: content-box;
+    box-sizing: content-box;
+    border: @thumb-border solid @thumb-border-color;
+    border-radius: @thumb-border-radius;
+    transition: ease-in all 200ms;
+    transform: translateY(-4px);
+    outline: none;
+  }
+
+  input[type=range] {
+    -webkit-appearance: none;
+    background: transparent;
+    outline: none;
+    padding: 0;
+    margin: 0;
+    border: 0;
+
+    position: absolute;
+    width: calc(@range-width ~"+ " @range-overflow * 2);
+    left: -@range-overflow;
+    height: @range-height;
+    transform: translateY(@range-vertical-center);
+
+    &::-webkit-slider-thumb {
+      .bar-thumb();
+    }
+
+    &::-webkit-slider-runnable-track {
+      background-color: transparent;
+    }
+
+    &::-webkit-slider-thumb:hover {
+      background-color: #FFFFFF;
+    }
+
+    &:active::-webkit-slider-thumb {
+      background-color: #FFFFFF;
+    }
+
+    &::-moz-range-thumb {
+      .bar-thumb();
+    }
+
+    &::-moz-range-thumb:hover {
+      background-color: #FFFFFF;
+    }
+
+    &:active::-moz-range-thumb {
+      background-color: #FFFFFF;
+    }
+  }
+}
+
+.small-playlist {
+  .progress-bar-wrapper {
+    //transform: translateY(-56px);
+  }
+}

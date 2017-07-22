@@ -1,0 +1,104 @@
+/**
+ * Created by Profesor08 on 27.05.2017.
+ */
+
+.track-info-wrapper {
+  height: 56px;
+  background: #1C2630;
+  position: relative;
+  z-index: 2;
+}
+
+.track-info {
+  height: 100%;
+  overflow: hidden;
+  justify-content: space-between;
+  position: relative;
+  z-index: 2;
+
+  .description {
+    width: 60%;
+    font-size: 0.9em;
+    margin-left: 4%;
+  }
+
+  .title {
+    font-weight: bold;
+    color: #DDDDDD;
+  }
+
+  .user {
+    color: #78909c;
+    font-size: 0.9em;
+  }
+
+  .time {
+    font-size: 0.8em;
+    margin-right: 4%;
+    color: #CCCCCC;
+  }
+}
+
+@keyframes wave-1 {
+  0%   { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes wave-2 {
+  0%   { transform: rotate(33deg); }
+  100% { transform: rotate(393deg); }
+}
+
+@keyframes wave-3 {
+  0%   { transform: rotate(66deg); }
+  100% { transform: rotate(426deg); }
+}
+
+@keyframes waves-show {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.music-waves {
+  overflow: hidden;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.wave {
+  position: absolute;
+  height: 1600px;
+  width: 1600px;
+  border-radius: 40%;
+  left: calc(~"50% - 800px");
+  top: -1600px;
+  transform: translateX(-50%);
+
+  &:nth-child(1) {
+    background: rgba(255, 255, 255, 0.03);
+    animation: wave-1 5s infinite linear;
+  }
+
+  &:nth-child(2) {
+    background: rgba(255, 255, 255, 0.03);
+    animation: wave-2 5s infinite linear;
+  }
+
+  &:nth-child(3) {
+    background: rgba(255, 255, 255, 0.03);
+    animation: wave-3 5s infinite linear;
+  }
+}
+
+.music-waves:not(.playing) {
+  .wave {
+    animation-duration: 60s;
+  }
+}
+
+.full-playlist {
+  .track-info-wrapper {
+    height: 0;
+  }
+}

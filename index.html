@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta content="assets/images/icon-128.png" itemprop="image">
+  <title>Player Material Design</title>
+  
+  <link href="assets/images/icon-128.ico" rel="shortcut icon">
+  
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
+  <!--Import Google Icon Font-->
+  <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  
+  <!--Import materialize.css-->
+  <link type="text/css" rel="stylesheet" href="assets/third-party/materialize-master/dist/css/materialize.min.css" media="screen,projection">
+  
+  <link rel="stylesheet" type="text/css" href="assets/third-party/alertify.js-master/dist/css/alertify.css">
+  <link rel="stylesheet" type="text/css" href="assets/third-party/flickity-master/dist/flickity.min.css"/>
+  <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+  
+  <template id="slide-template">
+    <div class="image"></div>
+  </template>
+  
+  <template id="track-template">
+    <div class="track">
+      <div class="track-progress"></div>
+      <div class="track-wrapper waves-effect">
+        <div class="play-button valign-wrapper">
+          <i class="material-icons">play_arrow</i>
+          <i class="material-icons">pause</i>
+        </div>
+        <div class="description">
+          <div class="title truncate">{title}</div>
+          <div class="user truncate">{user}</div>
+        </div>
+        <div class="duration-time">{duration}</div>
+      </div>
+    </div>
+  </template>
+  
+  <template id="track-info-template">
+    <div class="image"></div>
+  </template>
+
+</head>
+<body>
+
+<div class="player">
+  
+  <div class="header">
+    <nav>
+      <div class="nav-wrapper">
+        <a href="#!" class="brand-logo">SC Player</a>
+        <a href="#" data-activates="sidebar" class="button-collapse"><i class="material-icons">menu</i></a>
+      </div>
+    </nav>
+  </div>
+  
+  <div class="arrow waves-effect waves-light"><i class="material-icons">arrow_back</i></div>
+  
+  <ul id="sidebar" class="side-nav">
+    <li>
+      <div class="user-view">
+        <div>
+          <img class="circle" src="assets/images/icon-128.png">
+        </div>
+        <div>
+          <a href="#!name"><span class="white-text name">Prof</span></a>
+          <a href="#!email"><span class="white-text email">online7890@gmail.com</span></a>
+        </div>
+      </div>
+    </li>
+    <li class="nav-scrolling">
+      <ul>
+        <li><a class="waves-effect" href="#!"><i class="material-icons">headset</i> Home</a></li>
+        <li><a class="waves-effect" href="#!"><i class="material-icons">favorite_border</i> Favorites</a></li>
+        <li><a class="waves-effect" href="#!"><i class="material-icons">list</i> Playlists</a></li>
+        <li><a class="waves-effect" href="#!"><i class="material-icons">audiotrack</i> Artists</a></li>
+        <li><a class="waves-effect" href="#!"><i class="material-icons">cloud</i> Albums</a></li>
+        <li><a class="waves-effect" href="#!"><i class="material-icons">cloud</i> Albums</a></li>
+        <li><a class="waves-effect" href="#!"><i class="material-icons">cloud</i> Albums</a></li>
+        <li><a class="waves-effect" href="#!"><i class="material-icons">cloud</i> Albums</a></li>
+        <li><a class="waves-effect" href="#!"><i class="material-icons">cloud</i> Albums</a></li>
+        <li><a class="waves-effect" href="#!"><i class="material-icons">cloud</i> Albums</a></li>
+        <li><a class="waves-effect" href="#!"><i class="material-icons">cloud</i> Albums</a></li>
+        <li><a class="waves-effect" href="#!"><i class="material-icons">cloud</i> Albums</a></li>
+        <li><a class="waves-effect" href="#!"><i class="material-icons">cloud</i> Albums</a></li>
+        <li><a class="waves-effect" href="#!"><i class="material-icons">cloud</i> Albums</a></li>
+        <li><a class="waves-effect" href="#!"><i class="material-icons">cloud</i> Albums</a></li>
+        <li><a class="waves-effect" href="#!"><i class="material-icons">cloud</i> Albums</a></li>
+        <li><a class="waves-effect" href="#!"><i class="material-icons">cloud</i> Albums</a></li>
+        <li><a class="waves-effect" href="#!"><i class="material-icons">cloud</i> Albums</a></li>
+        <li><a class="waves-effect" href="#!"><i class="material-icons">cloud</i> Albums</a></li>
+        <li><a class="waves-effect" href="#!"><i class="material-icons">cloud</i> Albums</a></li>
+        <li><a class="waves-effect" href="#!"><i class="material-icons">cloud</i> Albums</a></li>
+        <li><a class="waves-effect" href="#!"><i class="material-icons">cloud</i> Albums</a></li>
+        <li><a class="waves-effect" href="#!"><i class="material-icons">cloud</i> Albums</a></li>
+        <li><a class="waves-effect" href="#!"><i class="material-icons">cloud</i> Albums</a></li>
+        <li><a class="waves-effect" href="#!"><i class="material-icons">cloud</i> Albums</a></li>
+        <li><a class="waves-effect" href="#!"><i class="material-icons">cloud</i> Albums</a></li>
+      </ul>
+    </li>
+  </ul>
+  
+  
+  <div class="image-container">
+    <div class="image-carousel"></div>
+  </div>
+  
+  <div class="track-info-wrapper">
+    <div class="music-waves ">
+      <div class="wave"></div>
+      <div class="wave"></div>
+      <div class="wave"></div>
+    </div>
+    <div class="track-info valign-wrapper">
+      <div class="description">
+        <div class="title truncate">No Track</div>
+        <div class="user truncate">No User</div>
+      </div>
+      <div class="time">
+        <div>&nbsp;</div>
+        <div><i class="play-time">0:00</i> / <i class="duration-time">0:00</i></div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="progress-bar-wrapper">
+    <div class="progress-bar">
+      <div class="background-bar"></div>
+    </div>
+    <input id="progress-slider" type="range" value="0" min="0" class="range-slider__range browser-default">
+  </div>
+  
+  
+  <div class="controls valign-wrapper center-align">
+    <div id="shuffle-button" class="control-button btn-floating waves-effect waves-light scale-transition">
+      <i class="material-icons">shuffle</i></div>
+    <div id="previous-button" class="control-button btn-floating waves-effect waves-light scale-transition">
+      <i class="material-icons">skip_previous</i></div>
+    <div class="control-button play-pause-wrapper btn-large">
+      <div id="play-button" class="btn-floating btn-large scale-transition">
+        <i class="material-icons">play_arrow</i>
+      </div>
+      <div id="pause-button" class="btn-floating btn-large pulse scale-transition scale-out">
+        <i class="material-icons">pause</i>
+      </div>
+    </div>
+    <div id="next-button" class="control-button btn-floating waves-effect waves-light scale-transition">
+      <i class="material-icons">skip_next</i>
+    </div>
+    <div id="repeat-button" class="control-button btn-floating waves-effect waves-light scale-transition">
+      <i class="material-icons">repeat</i>
+      <i class="material-icons">repeat_one</i>
+    </div>
+  </div>
+  
+  <div class="playlist">
+    <div class="tracks-wrapper"></div>
+  </div>
+</div>
+
+
+<script type="text/javascript" src="assets/third-party/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="assets/third-party/materialize-master/dist/js/materialize.js"></script>
+<script type="text/javascript" src="assets/third-party/flickity-master/dist/flickity.pkgd.js"></script>
+<script type="text/javascript" src="assets/third-party/hammer.min.js"></script>
+<!--<script type="text/javascript" src="assets/third-party/vue.js"></script>-->
+<script type="text/javascript" src="assets/third-party/axios-master/dist/axios.min.js"></script>
+<script type="text/javascript" src="assets/third-party/alertify.js-master/dist/js/alertify.js"></script>
+
+
+<script type="text/javascript" src="assets/js/Utils.js"></script>
+<script type="text/javascript" src="assets/js/Tpl.js"></script>
+<script type="text/javascript" src="assets/js/Carousel.js"></script>
+<script type="text/javascript" src="assets/js/Playlist.js"></script>
+<script type="text/javascript" src="assets/js/ProgressBar.js"></script>
+<script type="text/javascript" src="assets/js/TrackArray.js"></script>
+<script type="text/javascript" src="assets/js/SoundCloud.js"></script>
+<script type="text/javascript" src="assets/js/Player.js"></script>
+<script type="text/javascript" src="assets/js/App.js"></script>
+<script type="text/javascript" src="assets/js/init.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,121 @@
+/**
+ * Created by Profesor08 on 27.05.2017.
+ */
+
+@controls-background: #0E161D;
+
+.controls {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  align-content: flex-start;
+  height: 75px;
+  background: @controls-background;
+  background: linear-gradient(135deg, tint(@controls-background, 5%) 0%, @controls-background 100%);
+  transition: ease-in-out height,margin 300ms;
+
+  //.btn-large {
+  //  height: 44px;
+  //  line-height: 44px;
+  //
+  //  &:not(.btn-floating) {
+  //    padding: 0 22px;
+  //  }
+  //}
+  //
+  //.btn-floating.btn-large {
+  //  width: 46px;
+  //  height: 46px;
+  //}
+  //
+  //.btn-floating.btn-large i {
+  //  line-height: 46px;
+  //}
+
+  .control-button {
+    margin: 0 1%;
+  }
+
+  #pause-button, #play-button {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #D31427;
+  }
+  
+  #pause-button {
+    //background: #EC735E;
+  }
+
+  #shuffle-button, #repeat-button, #next-button, #previous-button {
+    box-shadow: none;
+    background: transparent;
+    animation: show-buttons 500ms;
+  }
+
+  #shuffle-button, #repeat-button {
+    i {
+      color: #78909c;
+    }
+
+    &.active i {
+      color: #cfd8dc;
+    }
+  }
+
+  #repeat-button {
+    i {
+      &:last-child {
+        display: none;
+      }
+    }
+
+    &.active i {
+      &:first-child {
+        display: none;
+      }
+
+      &:last-child {
+        display: inline-block;
+      }
+    }
+  }
+
+  .play-pause-wrapper {
+    position: relative;
+    left: 0;
+    top: 0;
+    transition: ease-in-out all 300ms;
+    background: transparent;
+    box-shadow: none;
+    z-index: 2;
+    overflow: visible;
+    margin: 0 3%;
+    transform: scale(0.9);
+
+    i {
+      transform: scale(1.3);
+      transition: ease-in-out all 300ms;
+    }
+  }
+}
+
+.small-playlist {
+  .controls {
+    height: 56px;
+    margin-top: -56px;
+    z-index: 1;
+
+    .play-pause-wrapper {
+      left: 45%;
+      transform: translateX(-50%) translateY(-50%) scale(0.8);
+      z-index: 3;
+
+      i {
+        transform: scale(1.5);
+      }
+    }
+  }
+}
