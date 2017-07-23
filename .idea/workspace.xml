@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="6f8de3ed-8eec-44a8-a3ae-6c6ac828fe3d" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/css/style.css" afterPath="$PROJECT_DIR$/assets/css/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/less/player.less" afterPath="$PROJECT_DIR$/assets/less/player.less" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -451,7 +449,7 @@
       <workItem from="1500301213024" duration="6222000" />
       <workItem from="1500386849864" duration="1209000" />
       <workItem from="1500462843622" duration="45000" />
-      <workItem from="1500788310022" duration="293000" />
+      <workItem from="1500788310022" duration="394000" />
     </task>
     <task id="LOCAL-00001" summary="update base player size">
       <created>1500788516360</created>
@@ -460,11 +458,18 @@
       <option name="project" value="LOCAL" />
       <updated>1500788516360</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="update base player size">
+      <created>1500788605073</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1500788605073</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="179262000" />
+    <option name="totallyTimeSpent" value="179363000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1696" height="1026" extended-state="6" />
