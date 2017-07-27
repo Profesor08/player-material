@@ -29,7 +29,8 @@ class App
     this.save = {
       loop: false,
       shuffle: false,
-      lastTrack: null
+      lastTrack: null,
+      volume: 1
     };
     this.ready = false;
 
@@ -84,6 +85,11 @@ class App
     this.controls.progressSlider.value = currentTime;
     this.controls.progressBar.style.width = progress + "%";
     this.playlist.updateProgress(progress);
+  }
+
+  updateVolumeBar(volume)
+  {
+     this.controls.volumeBar.style.width = (volume * 100) + "%";
   }
 
   updatePlayTime()
@@ -254,6 +260,15 @@ class App
         this.player.setTime(this.controls.progressSlider.value);
         this.updateProgressbar();
         this.updatePlayTime();
+      }
+    });
+
+    this.controls.volumeSlider.addEventListener("input", () =>
+    {
+      if (this.ready)
+      {
+        this.setVolume(this.controls.volumeSlider.value);
+        this.saveData();
       }
     });
 
@@ -454,11 +469,24 @@ class App
     }
   }
 
+  setVolume(volume)
+  {
+    this.player.setVolume(volume);
+    this.updateVolumeBar(volume);
+  }
+
+  updateVolume(volume)
+  {
+    this.controls.volumeSlider.value = volume;
+    this.setVolume(volume);
+  }
+
   saveData()
   {
     this.save.loop = this.player.getAudioProperty("loop");
     this.save.shuffle = this.player.getShuffle();
     this.save.lastTrack = this.player.getTrack().id;
+    this.save.volume = this.player.getAudioProperty("volume");
 
     localStorage["playerSave"] = JSON.stringify(this.save);
   }
@@ -471,6 +499,7 @@ class App
 
     this.player.loop(this.save.loop);
     this.player.setShuffle(this.save.shuffle);
+    this.updateVolume(this.save.volume);
 
     this._init();
   }

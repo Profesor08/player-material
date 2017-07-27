@@ -62,9 +62,6 @@ class Player
    */
   _initAudio()
   {
-
-    this.audio.volume = .5;
-
     this.audio.addEventListener("canplay", () =>
     {
       /**
@@ -228,6 +225,15 @@ class Player
   setTime(time)
   {
     this.audio.currentTime = time;
+  }
+
+  /**
+   * Set audio volume between 0.0 - 1.0
+   * @param {float} volume
+   */
+  setVolume(volume)
+  {
+    this.audio.volume = volume;
   }
 
   /**

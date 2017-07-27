@@ -81,28 +81,17 @@
         <li><a class="waves-effect" href="#!"><i class="material-icons">favorite_border</i> Favorites</a></li>
         <li><a class="waves-effect" href="#!"><i class="material-icons">list</i> Playlists</a></li>
         <li><a class="waves-effect" href="#!"><i class="material-icons">audiotrack</i> Artists</a></li>
-        <li><a class="waves-effect" href="#!"><i class="material-icons">cloud</i> Albums</a></li>
-        <li><a class="waves-effect" href="#!"><i class="material-icons">cloud</i> Albums</a></li>
-        <li><a class="waves-effect" href="#!"><i class="material-icons">cloud</i> Albums</a></li>
-        <li><a class="waves-effect" href="#!"><i class="material-icons">cloud</i> Albums</a></li>
-        <li><a class="waves-effect" href="#!"><i class="material-icons">cloud</i> Albums</a></li>
-        <li><a class="waves-effect" href="#!"><i class="material-icons">cloud</i> Albums</a></li>
-        <li><a class="waves-effect" href="#!"><i class="material-icons">cloud</i> Albums</a></li>
-        <li><a class="waves-effect" href="#!"><i class="material-icons">cloud</i> Albums</a></li>
-        <li><a class="waves-effect" href="#!"><i class="material-icons">cloud</i> Albums</a></li>
-        <li><a class="waves-effect" href="#!"><i class="material-icons">cloud</i> Albums</a></li>
-        <li><a class="waves-effect" href="#!"><i class="material-icons">cloud</i> Albums</a></li>
-        <li><a class="waves-effect" href="#!"><i class="material-icons">cloud</i> Albums</a></li>
-        <li><a class="waves-effect" href="#!"><i class="material-icons">cloud</i> Albums</a></li>
-        <li><a class="waves-effect" href="#!"><i class="material-icons">cloud</i> Albums</a></li>
-        <li><a class="waves-effect" href="#!"><i class="material-icons">cloud</i> Albums</a></li>
-        <li><a class="waves-effect" href="#!"><i class="material-icons">cloud</i> Albums</a></li>
-        <li><a class="waves-effect" href="#!"><i class="material-icons">cloud</i> Albums</a></li>
-        <li><a class="waves-effect" href="#!"><i class="material-icons">cloud</i> Albums</a></li>
-        <li><a class="waves-effect" href="#!"><i class="material-icons">cloud</i> Albums</a></li>
-        <li><a class="waves-effect" href="#!"><i class="material-icons">cloud</i> Albums</a></li>
-        <li><a class="waves-effect" href="#!"><i class="material-icons">cloud</i> Albums</a></li>
-        <li><a class="waves-effect" href="#!"><i class="material-icons">cloud</i> Albums</a></li>
+        <li>
+          <div class="volume">
+            <i class="material-icons">volume_up</i>
+            <div class="progress-bar-wrapper">
+              <div class="progress-bar">
+                <div class="background-bar volume-bar"></div>
+              </div>
+              <input id="volume-slider" type="range" value="0" step="0.01" min="0" max="1" class="range-slider__range browser-default">
+            </div>
+          </div>
+        </li>
       </ul>
     </li>
   </ul>
@@ -132,7 +121,7 @@
   
   <div class="progress-bar-wrapper">
     <div class="progress-bar">
-      <div class="background-bar"></div>
+      <div class="background-bar track-progress"></div>
     </div>
     <input id="progress-slider" type="range" value="0" min="0" class="range-slider__range browser-default">
   </div>

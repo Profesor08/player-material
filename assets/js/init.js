@@ -17,7 +17,7 @@ app.initControls({
   shuffleButton: document.querySelector("#shuffle-button"),
   trackInfo: document.querySelector(".track-info"),
   progressSlider: document.querySelector("#progress-slider"),
-  progressBar: document.querySelector(".progress-bar .background-bar"),
+  progressBar: document.querySelector(".progress-bar .background-bar.track-progress"),
   imageContainer: document.querySelector(".image-container"),
   imageCarousel: document.querySelector(".image-container .image-carousel"),
   title: document.querySelector(".track-info .title"),
@@ -28,7 +28,10 @@ app.initControls({
   playlistWrapper: document.querySelector(".playlist"),
   header: document.querySelector(".header"),
   arrow: document.querySelector(".arrow"),
-  topNav: document.querySelector(".top-nav")
+  topNav: document.querySelector(".top-nav"),
+
+  volumeSlider: document.querySelector("#volume-slider"),
+  volumeBar: document.querySelector(".progress-bar .background-bar.volume-bar"),
 });
 
 app.loadTracks("https://soundcloud.com/profesor08");

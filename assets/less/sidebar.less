@@ -40,13 +40,33 @@
   li > a > i,
   li > a > [class^="mdi-"],
   li > a li > a > [class*="mdi-"],
-  li > a > i.material-icons {
+  li > a > i.material-icons,
+  li > div.volume > i.material-icons {
     margin: 0 16px 0 0;
     color: #DDDDDD;
+    float: left;
+    height: 48px;
+    line-height: 48px;
+    width: 24px;
   }
 
   .nav-scrolling {
     height: calc(~"100% - 104px");
     overflow: scroll;
+  }
+
+  .volume {
+    position: relative;
+    height: 48px;
+    padding: 0 16px;
+
+    .progress-bar-wrapper {
+      width: calc(~"100% - 32px - 24px - 16px");
+      display: inline-block;
+      position: absolute;
+      top: 50%;
+      left: 56px;
+      transform: translateY(-50%);
+    }
   }
 }
