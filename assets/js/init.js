@@ -5,7 +5,8 @@
 
 const app = new App({
   // client_id: "2t9loNQH90kzJcsFCODdigxfp325aq4z"
-  client_id: "viGqqUJ1aoaFVSMA7EdLE3IZJLwYFKU"
+  // client_id: "viGqqUJ1aoaFVSMA7EdLE3IZJLwYFKU"
+  client_id: "e9f897e4636fc2682a1c243b511d30b8"
 });
 
 app.initControls({
