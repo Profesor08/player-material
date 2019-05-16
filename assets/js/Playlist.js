@@ -2,9 +2,7 @@
  * Created by Profesor08 on 01.06.2017.
  */
 
-
-class Playlist
-{
+class Playlist {
   /**
    * Create playlist
    * @param {Player} player
@@ -12,8 +10,7 @@ class Playlist
    * @param {HTMLElement} container - playlist tracks container
    * @param {Track[]} tracks - tracks
    */
-  constructor(player, wrapper, container, tracks)
-  {
+  constructor(player, wrapper, container, tracks) {
     this.player = player;
     this.wrapper = wrapper;
     this.container = container;
@@ -33,12 +30,9 @@ class Playlist
    * @param {string} event
    * @param {function} callback
    */
-  on(event, callback)
-  {
-    this.tracksAnchors.forEach(div =>
-    {
-      div.addEventListener(event, event =>
-      {
+  on(event, callback) {
+    this.tracksAnchors.forEach(div => {
+      div.addEventListener(event, event => {
         callback(event, div);
       });
     });
@@ -51,25 +45,20 @@ class Playlist
    * @param {int} [duration] - scroll duration time
    * @param {int} [delay] - delay in ms before scroll starts
    */
-  select(id, instant, duration, delay)
-  {
-    if (instant === undefined)
-    {
+  select(id, instant, duration, delay) {
+    if (instant === undefined) {
       instant = false;
     }
 
-    if (duration === undefined)
-    {
+    if (duration === undefined) {
       duration = 500;
     }
 
-    if (delay === undefined)
-    {
+    if (delay === undefined) {
       delay = 0;
     }
 
-    if (this._selected !== null)
-    {
+    if (this._selected !== null) {
       this._deselectTrack(this._selected);
     }
 
@@ -79,8 +68,7 @@ class Playlist
 
     this.pauseState(id, this.player.getAudioProperty("paused"));
 
-    setTimeout(() =>
-    {
+    setTimeout(() => {
       this._scrollToTrack(id, duration, instant);
     }, delay);
   }
@@ -90,14 +78,10 @@ class Playlist
    * @param {int} id
    * @param {boolean} paused
    */
-  pauseState(id, paused)
-  {
-    if (paused)
-    {
+  pauseState(id, paused) {
+    if (paused) {
       this.tracksAnchors[id].classList.remove("pause");
-    }
-    else
-    {
+    } else {
       this.tracksAnchors[id].classList.add("pause");
     }
   }
@@ -106,8 +90,7 @@ class Playlist
    * Update progress bar
    * @param {int} value
    */
-  updateProgress(value)
-  {
+  updateProgress(value) {
     this.tracksAnchors[this._selected].children[0].style.width = value + "%";
   }
 
@@ -115,8 +98,7 @@ class Playlist
    * Initialize
    * @private
    */
-  _init()
-  {
+  _init() {
     this.container.innerHTML = "";
     this._createPlaylist();
     this.select(this.player.getTrackId(), true);
@@ -126,19 +108,12 @@ class Playlist
    * Creating playlist elements
    * @private
    */
-  _createPlaylist()
-  {
-    if (this.tracks.length > 0)
-    {
+  _createPlaylist() {
+    if (this.tracks.length > 0) {
       let tpl = new Tpl("#track-template");
 
-      this.tracks.forEach((track, id) =>
-      {
-        this.container.appendChild(this._createTrack(
-          tpl.html(),
-          track,
-          id
-        ));
+      this.tracks.forEach((track, id) => {
+        this.container.appendChild(this._createTrack(tpl.html(), track, id));
       });
     }
   }
@@ -151,19 +126,15 @@ class Playlist
    * @return {HTMLElement}
    * @private
    */
-  _createTrack(html, track, id)
-  {
+  _createTrack(html, track, id) {
     let tpl = Tpl.fromHTML(html);
 
-    let div = tpl.replace([
-      "{title}",
-      "{user}",
-      "{duration}"
-    ], [
-      track.title,
-      track.user.username,
-      timestampToTime(track.duration)
-    ]).get();
+    let div = tpl
+      .replace(
+        ["{title}", "{user}", "{duration}"],
+        [track.title, track.user.username, timestampToTime(track.duration)],
+      )
+      .get();
 
     div.setAttribute("data-id", id);
     div.setAttribute("data-track-id", track.id);
@@ -178,8 +149,7 @@ class Playlist
    * @param id
    * @private
    */
-  _selectTrack(id)
-  {
+  _selectTrack(id) {
     this.tracksAnchors[id].classList.add("active");
   }
 
@@ -188,8 +158,7 @@ class Playlist
    * @param id
    * @private
    */
-  _deselectTrack(id)
-  {
+  _deselectTrack(id) {
     this.tracksAnchors[id].classList.remove("active");
     this.tracksAnchors[id].classList.remove("pause");
     this.tracksAnchors[this._selected].children[0].removeAttribute("style");
@@ -201,20 +170,14 @@ class Playlist
    * @param {int} [duration] - scroll duration time
    * @param {boolean} [instant] - skip animation
    */
-  _scrollToTrack(id, duration, instant)
-  {
+  _scrollToTrack(id, duration, instant) {
     let trackHeight = this.tracksAnchors[id].offsetHeight;
     let wrapperHeight = this.wrapper.offsetHeight;
-    let scroll = trackHeight * id - wrapperHeight / 2 + trackHeight / 2;
+    let scrollTop = id * trackHeight - wrapperHeight / 2 + trackHeight / 2;
 
-    if (instant)
-    {
-      this.wrapper.scrollTop = scroll;
-    }
-    else
-    {
-      this.wrapper.scrollTo(scroll, duration);
-    }
+    this.wrapper.scrollTo({
+      top: scrollTop,
+      behavior: instant ? "instant" : "smooth",
+    });
   }
-
 }
