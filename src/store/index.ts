@@ -190,7 +190,7 @@ const initialProgressState: ProgressState = {
 };
 
 const initialSidebarState: SidebarState = {
-  sidebarActive: true,
+  sidebarActive: false,
 };
 
 try {
