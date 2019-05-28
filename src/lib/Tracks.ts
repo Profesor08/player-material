@@ -213,7 +213,7 @@ function getArtwork(track: Track, size: string): string {
     return track.artwork_url.replace(/large/, size);
   } else if (track.user.avatar_url !== null) {
     if (track.user.avatar_url.includes("default_avatar")) {
-      return process.env.PUBLIC_URL + "/no-cover.svg";
+      return process.env.PUBLIC_URL + "no-cover.svg";
     } else {
       return track.user.avatar_url.replace(/large/, size);
     }

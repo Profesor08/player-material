@@ -55,7 +55,7 @@ class Sidebar extends Component<SidebarProps> {
             <div className="profile">
               <img
                 className="profile-image"
-                src="/icon-128.png"
+                src={process.env.PUBLIC_URL + "icon-128.png"}
                 alt=""
                 width="64"
                 height="64"
