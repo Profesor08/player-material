@@ -1,0 +1,122 @@
+.playlist {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: calc(75% - 54px);
+  background-image: linear-gradient(135deg, #262d34 0%, #0e161d 100%);
+  transition: ease transform 0.5s;
+  transform: translateY(calc(100% - 75px)) translateZ(0);
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  &::-webkit-scrollbar {
+    width: 5px;
+  }
+  &::-webkit-scrollbar-track {
+    background: #0e161d;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: #262d34;
+    outline: none;
+  }
+
+  // .tracks-list {
+  // }
+
+  .track-item {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    border-bottom: 1px solid #212e3b;
+    display: grid;
+    grid-template-columns: 50px auto 70px;
+
+    &.is-active {
+      background: #10181f;
+    }
+
+    &.is-playing {
+      .play-track {
+        .play-icon {
+          display: none;
+        }
+      }
+    }
+
+    &:not(.is-playing) {
+      .play-track {
+        .pause-icon {
+          display: none;
+        }
+      }
+    }
+
+    .play-track {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      z-index: 1;
+
+      .play-icon {
+        pointer-events: none;
+      }
+    }
+
+    .track-meta {
+      font-size: 0.9em;
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-rows: 18px 16px;
+      align-content: center;
+
+      .track-title {
+        font-weight: bold;
+        color: #dddddd;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        line-height: 18px;
+        max-width: 100%;
+      }
+
+      .track-user {
+        font-size: 0.9em;
+        color: #78909c;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        line-height: 16px;
+      }
+    }
+
+    .track-duration {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      font-size: 0.8em;
+      color: #cccccc;
+      text-align: right;
+      padding-right: 15px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .track-progress {
+      position: absolute;
+      width: 0;
+      height: 100%;
+      top: 0;
+      left: 0;
+      background: #2d363d;
+      z-index: 0;
+    }
+  }
+}
+
+.playlist-active {
+  .playlist {
+    transform: translateY(0) translateZ(0);
+  }
+}

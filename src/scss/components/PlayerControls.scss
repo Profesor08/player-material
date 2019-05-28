@@ -1,0 +1,202 @@
+.player-controls {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  align-content: flex-start;
+  width: 100%;
+  height: 75px;
+  transition: ease bottom 0.5s, ease transform 0.5s, ease height 0.5s;
+  position: absolute;
+  bottom: 0;
+  overflow: visible;
+  z-index: 1;
+
+  @mixin pulse($name, $from, $to) {
+    @keyframes #{$name} {
+      0% {
+        transform: scale($from) translateZ(0);
+      }
+
+      50% {
+        transform: scale($to) translateZ(0);
+      }
+
+      100% {
+        transform: scale($from) translateZ(0);
+      }
+    }
+  }
+
+  @include pulse(control-play-pulse-play, 1, 0.5);
+  @include pulse(control-play-pulse-pause, 1, 0.5);
+  @include pulse(control-play-pulse-small-play, 0.8, 0.4);
+  @include pulse(control-play-pulse-small-pause, 0.8, 0.4);
+
+  @keyframes control-play-pulsating {
+    from {
+      transform: scale(1) translateZ(0);
+      opacity: 1;
+    }
+
+    to {
+      transform: scale(1.5) translateZ(0);
+      opacity: 0;
+    }
+  }
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #0e161d;
+    background-image: linear-gradient(135deg, #1a2228 0%, #0e161d 100%);
+    z-index: 0;
+    pointer-events: none;
+    transition: ease opacity 0.1s;
+  }
+
+  .control {
+    width: 50px;
+    height: 50px;
+    margin: 0 1%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: none;
+    transition: ease opacity 0.5s, ease transform 0.5s, ease left 0.5s;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &.is-active {
+      &.control-shuffle {
+        .control-icon {
+          fill: #ffffff;
+        }
+      }
+
+      &.control-play {
+        animation-name: control-play-pulse-pause;
+
+        .icon-play {
+          display: none;
+        }
+
+        .icon-pause {
+          position: relative;
+          z-index: 1;
+        }
+
+        &:before {
+          background: #d31427;
+          animation: control-play-pulsating 1.3s infinite;
+          z-index: 0;
+        }
+      }
+
+      &.control-repeat {
+        .icon-repeat-inactive {
+          display: none;
+        }
+      }
+    }
+
+    &:not(.is-active) {
+      &.control-play {
+        .icon-pause {
+          display: none;
+        }
+      }
+
+      &.control-repeat {
+        .icon-repeat-active {
+          display: none;
+        }
+      }
+    }
+
+    &.control-shuffle {
+      .control-icon {
+        fill: #78909c;
+      }
+    }
+
+    &.control-repeat {
+      .icon-repeat-inactive {
+        fill: #78909c;
+      }
+
+      .icon-repeat-active {
+        fill: #ffffff;
+      }
+    }
+
+    &.control-play {
+      width: 50px;
+      height: 50px;
+      margin: 0 3%;
+      background: #d31427;
+      border-radius: 50%;
+      animation-timing-function: cubic-bezier(0.53, 0.01, 0.36, 1.63);
+      animation-duration: 0.3s;
+      animation-name: control-play-pulse-play;
+      position: relative;
+      left: 0;
+
+      &:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 0;
+        width: 100%;
+        height: 100%;
+        background: #d31427;
+        border-radius: 50%;
+        opacity: 0;
+        pointer-events: none;
+      }
+
+      .control-icon {
+        z-index: 1;
+      }
+    }
+
+    .control-icon {
+      pointer-events: none;
+    }
+  }
+}
+
+.playlist-active {
+  .player-controls {
+    bottom: 75%;
+    height: 0;
+    transform: translateZ(0);
+
+    &:before {
+      opacity: 0;
+    }
+
+    .control {
+      &:not(.control-play) {
+        pointer-events: none;
+        opacity: 0;
+        transform: scale(0) translateZ(0);
+      }
+
+      &.control-play {
+        left: calc(50% - 50px);
+      }
+    }
+  }
+}

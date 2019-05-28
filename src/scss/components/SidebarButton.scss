@@ -1,0 +1,56 @@
+.sidebar-button {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  width: 38px;
+  height: 38px;
+  z-index: 5;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: none;
+  transition: ease all 0.2s;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &.is-active {
+    top: 5px;
+    left: 5px;
+
+    .line {
+      &.line-1 {
+        transform: translate(-50%, -50%) rotateZ(45deg) translateZ(0);
+        top: 50%;
+      }
+
+      &.line-2 {
+        width: 0;
+      }
+
+      &.line-3 {
+        transform: translate(-50%, -50%) rotateZ(-45deg) translateZ(0);
+        top: 50%;
+      }
+    }
+  }
+
+  .line {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) translateZ(0);
+    transform-origin: 50% 50%;
+    width: 26px;
+    height: 2px;
+    background: #ffffff;
+    transition: ease all 0.5s;
+
+    &.line-1 {
+      top: calc(50% - 8px);
+    }
+
+    &.line-3 {
+      top: calc(50% + 8px);
+    }
+  }
+}

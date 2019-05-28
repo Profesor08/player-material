@@ -1,0 +1,120 @@
+@keyframes wave-1 {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes wave-2 {
+  0% {
+    transform: rotate(33deg);
+  }
+  100% {
+    transform: rotate(393deg);
+  }
+}
+
+@keyframes wave-3 {
+  0% {
+    transform: rotate(66deg);
+  }
+  100% {
+    transform: rotate(426deg);
+  }
+}
+
+.track-info {
+  background: #1c2630;
+  position: relative;
+  padding: 8px 15px;
+  display: grid;
+  grid-template-areas:
+    "title title title time time"
+    "user user user time time";
+  grid-gap: 0 15px;
+  font-size: 0.9em;
+  line-height: 20px;
+  transition: ease bottom 0.5s, ease transform 0.5s;
+  transform: translateZ(0);
+  width: 100%;
+  position: absolute;
+  bottom: 75px;
+
+  .visualization-waves {
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+
+    &:not(.is-playing) .wave {
+      animation-duration: 60s !important;
+    }
+
+    .wave {
+      position: absolute;
+      height: 1600px;
+      width: 1600px;
+      border-radius: 40%;
+      left: calc(50% - 800px);
+      top: -1600px;
+      transform: translateX(-50%);
+
+      &:nth-child(1) {
+        background: rgba(255, 255, 255, 0.03);
+        animation: wave-1 10s infinite linear;
+      }
+      &:nth-child(2) {
+        background: rgba(255, 255, 255, 0.03);
+        animation: wave-2 10s infinite linear;
+      }
+      &:nth-child(3) {
+        background: rgba(255, 255, 255, 0.03);
+        animation: wave-3 10s infinite linear;
+      }
+    }
+  }
+
+  .track-title {
+    grid-area: title;
+    font-weight: bold;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .track-user {
+    grid-area: user;
+    font-size: 0.9em;
+    color: #78909c;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .track-time {
+    grid-area: time;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+
+    font-size: 0.8em;
+    font-style: italic;
+    color: #cccccc;
+
+    .separator {
+      margin: 0 2px;
+    }
+  }
+}
+
+.playlist-active {
+  .track-info {
+    bottom: 75%;
+    transform: translateY(100%) translateZ(0);
+  }
+}

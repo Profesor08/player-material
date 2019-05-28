@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "esnext",
+    "jsx": "preserve",
+    "esModuleInterop": true,
+    "sourceMap": true,
+    "allowJs": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "lib": ["es6", "dom"],
+    "rootDir": "src",
+    "moduleResolution": "node",
+    "skipLibCheck": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true
+  },
+  "include": ["src", "public/index.tsx"]
+}
