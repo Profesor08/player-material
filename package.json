@@ -14,7 +14,7 @@
     "dotenv": "^8.0.0",
     "flickity": "^2.2.0",
     "gsap": "^3.6.0",
-    "lodash": "^4.17.11",
+    "lodash": "^4.17.21",
     "node-sass": "^4.13.1",
     "normalize.css": "^8.0.1",
     "react": "^16.8.6",
