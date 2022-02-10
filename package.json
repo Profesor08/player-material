@@ -15,7 +15,7 @@
     "flickity": "^2.2.0",
     "gsap": "^3.6.0",
     "lodash": "^4.17.21",
-    "node-sass": "^4.13.1",
+    "node-sass": "^7.0.0",
     "normalize.css": "^8.0.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
